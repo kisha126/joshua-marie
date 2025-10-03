@@ -29,3 +29,4 @@ format:
         - cosmo
       dark: 
         - darkly
+    css: Theme/code.css
