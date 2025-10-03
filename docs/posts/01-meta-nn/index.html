@@ -1690,6 +1690,16 @@ pre {
 
   animation: fadeIn 0.5s ease-out;
 
+  /* Unlimited size while maintaining block display */
+
+  width: fit-content;
+
+  min-width: 100%;
+
+  max-width: none;
+
+  display: block;
+
 }
 
 
@@ -1746,6 +1756,12 @@ pre code {
 
   color: #19183B; /* Light mode text */
 
+  /* Ensure proper inheritance for syntax highlighting */
+
+  display: block;
+
+  white-space: pre;
+
 }
 
 
@@ -1758,63 +1774,15 @@ pre code {
 
 
 
-/* =========================
+/* Ensure syntax highlighting spans inherit properly */
 
-   Callout title
+pre code * {
 
-   ========================= */
+  display: inline;
 
+  background: inherit;
 
-
-.callout-title-container {
-
-  color: #19183B !important; /* Always dark text */
-
-}
-
-
-
-/* =========================
-
-   Global hyperlink styling
-
-   ========================= */
-
-
-
-a,
-
-a:visited {
-
-  color: #3A6F43 !important; /* Always dark */
-
-  text-decoration: underline; /* optional: keep underline */
-
-}
-
-
-
-/* Optional: hover effect */
-
-a:hover {
-
-  color: #333333 !important; /* slightly darker on hover */
-
-}
-
-
-
-/* =========================
-
-   Strong Global bold text
-
-   ========================= */
-
-
-
-strong, b {
-
-  font-weight: 700; /* ensure it's bold */
+  color: inherit;
 
 }
 
@@ -1937,6 +1905,70 @@ code:not(pre code) {
   left: 100%;
 
 }
+
+
+
+/* =========================
+
+   Callout title
+
+   ========================= */
+
+
+
+.callout-title-container {
+
+  color: #19183B !important; /* Always dark text */
+
+}
+
+
+
+/* =========================
+
+   Global hyperlink styling
+
+   ========================= */
+
+
+
+a,
+
+a:visited {
+
+  color: #3A6F43 !important; /* Always dark */
+
+  text-decoration: underline; /* optional: keep underline */
+
+}
+
+
+
+/* Optional: hover effect */
+
+a:hover {
+
+  color: #333333 !important; /* slightly darker on hover */
+
+}
+
+
+
+/* =========================
+
+   Strong Global bold text
+
+   ========================= */
+
+
+
+strong, b {
+
+  font-weight: 700; /* ensure it's bold */
+
+}
+
+
 
 
 

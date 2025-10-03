@@ -48,8 +48,7 @@ format:
     footnotes-hover: true
     fontsize: 1.1em
     theme: 
-      - cosmo
-      - theming.scss
+        - theming.scss
     css: 
       - styles/base.css
       - styles/components.css

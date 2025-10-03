@@ -402,6 +402,11 @@ pre {
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   position: relative;
   animation: fadeIn 0.5s ease-out;
+  /* Unlimited size while maintaining block display */
+  width: fit-content;
+  min-width: 100%;
+  max-width: none;
+  display: block;
 }
 
 [data-theme="dark"] pre {
@@ -430,41 +435,20 @@ pre code {
   padding: 0;
   font-weight: 500;
   color: #19183B; /* Light mode text */
+  /* Ensure proper inheritance for syntax highlighting */
+  display: block;
+  white-space: pre;
 }
 
 [data-theme="dark"] pre code {
   color: #FFF5F2; /* Dark mode text */
 }
 
-/* =========================
-   Callout title
-   ========================= */
-
-.callout-title-container {
-  color: #19183B !important; /* Always dark text */
-}
-
-/* =========================
-   Global hyperlink styling
-   ========================= */
-
-a,
-a:visited {
-  color: #3A6F43 !important; /* Always dark */
-  text-decoration: underline; /* optional: keep underline */
-}
-
-/* Optional: hover effect */
-a:hover {
-  color: #333333 !important; /* slightly darker on hover */
-}
-
-/* =========================
-   Strong Global bold text
-   ========================= */
-
-strong, b {
-  font-weight: 700; /* ensure it's bold */
+/* Ensure syntax highlighting spans inherit properly */
+pre code * {
+  display: inline;
+  background: inherit;
+  color: inherit;
 }
 
 /* =========================
@@ -526,6 +510,38 @@ code:not(pre code) {
 .code-folding-btn:hover::after {
   left: 100%;
 }
+
+/* =========================
+   Callout title
+   ========================= */
+
+.callout-title-container {
+  color: #19183B !important; /* Always dark text */
+}
+
+/* =========================
+   Global hyperlink styling
+   ========================= */
+
+a,
+a:visited {
+  color: #3A6F43 !important; /* Always dark */
+  text-decoration: underline; /* optional: keep underline */
+}
+
+/* Optional: hover effect */
+a:hover {
+  color: #333333 !important; /* slightly darker on hover */
+}
+
+/* =========================
+   Strong Global bold text
+   ========================= */
+
+strong, b {
+  font-weight: 700; /* ensure it's bold */
+}
+
 
 /* Enhanced blockquotes */
 blockquote {
