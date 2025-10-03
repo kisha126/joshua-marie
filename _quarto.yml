@@ -28,7 +28,7 @@ website:
   twitter-card: true
   repo-url: https://github.com/kisha126/joshua-marie
   repo-actions: [edit, issue]
-  repo-branch: master
+  repo-branch: main
   # site-url: 
 
 highlight-style: pygments
