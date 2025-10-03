@@ -1,0 +1,9 @@
+---
+title: "Check out my blogs"
+listing:
+  contents: ./
+  type: default
+  sort: "date desc"
+  categories: true
+comments: false
+---
