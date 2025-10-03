@@ -771,9 +771,9 @@ Inputs in <code>initialize</code>
 <ol type="1">
 <li><p>Starting with <code>x</code>, it progressively adds each operation:</p>
 <ul>
-<li>Step 1: x %&gt;% self$fc1()</li>
-<li>Step 2: (x %&gt;% self$fc1()) %&gt;% nnf_relu()</li>
-<li>Step 3: (x %&gt;% self<span class="math inline">\(fc1() %&gt;% nnf_relu()) %&gt;% self\)</span>fc2()</li>
+<li>Step 1: <code>x %&gt;% self$fc1()</code></li>
+<li>Step 2: <code>(x %&gt;% self$fc1()) %&gt;% nnf_relu()</code></li>
+<li>Step 3: <code>(x %&gt;% self$fc1() %&gt;% nnf_relu()) %&gt;% self$fc2()</code></li>
 <li>…and so on</li>
 </ul></li>
 <li><p>As for the final output:</p>
