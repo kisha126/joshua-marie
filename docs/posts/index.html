@@ -134,6 +134,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../styles/components.css">
 <link rel="stylesheet" href="../styles/layout.css">
 <link rel="stylesheet" href="Theme/code.css">
+<link rel="stylesheet" href="Theme/table.css">
 <meta name="twitter:title" content="Joshua Marie Ongcoy - Check out my blogs">
 <meta name="twitter:card" content="summary">
 </head>
@@ -228,7 +229,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,time-series,machine-learning" data-listing-date-sort="1758902400000" data-listing-file-modified-sort="1759473196052" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="29" data-listing-word-count-sort="5769">
+<div class="quarto-post image-right" data-index="0" data-categories="R,time-series,machine-learning" data-listing-date-sort="1758902400000" data-listing-file-modified-sort="1759550566701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="30" data-listing-word-count-sort="5809">
 <div class="thumbnail">
 <p><a href="../posts/02-arima-grid-search/index.html" class="no-external"></a></p><a href="../posts/02-arima-grid-search/index.html" class="no-external">
 <p><img src="../posts/02-arima-grid-search/image.png" class="thumbnail-image"></p>
@@ -1186,7 +1187,7 @@ h4 {
 
 .callout-title-container {
 
-  color: #19183B !important; /* Always dark text */
+  color: #19183B !important;
 
 }
 
@@ -1204,19 +1205,17 @@ a,
 
 a:visited {
 
-  color: #3A6F43 !important; /* Always dark */
+  color: #3A6F43 !important;
 
-  text-decoration: underline; /* optional: keep underline */
+  text-decoration: underline;
 
 }
 
 
 
-/* Optional: hover effect */
-
 a:hover {
 
-  color: #333333 !important; /* slightly darker on hover */
+  color: #333333 !important;
 
 }
 
@@ -1232,11 +1231,9 @@ a:hover {
 
 strong, b {
 
-  font-weight: 700; /* ensure it's bold */
+  font-weight: 700;
 
 }
-
-
 
 
 
@@ -1454,24 +1451,6 @@ textarea:focus {
 
   }
 
-  
-
-  table {
-
-    font-size: 0.875rem;
-
-  }
-
-  
-
-  table th,
-
-  table td {
-
-    padding: 0.75rem;
-
-  }
-
 }
 
 
@@ -1523,14 +1502,6 @@ textarea:focus {
   
 
   pre, blockquote {
-
-    page-break-inside: avoid;
-
-  }
-
-  
-
-  table {
 
     page-break-inside: avoid;
 
@@ -1630,94 +1601,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   
 
-  // Enhanced code block interactions
-
-  const codeBlocks = document.querySelectorAll('pre');
-
-  codeBlocks.forEach(function(block) {
-
-    // Add copy button to code blocks
-
-    const copyButton = document.createElement('button');
-
-    copyButton.innerHTML = '⧉'; // Changed from emoji to copy symbol
-
-    copyButton.style.position = 'absolute';
-
-    copyButton.style.top = '10px';
-
-    copyButton.style.right = '10px';
-
-    copyButton.style.background = 'rgba(0,0,0,0.7)';
-
-    copyButton.style.color = 'white';
-
-    copyButton.style.border = 'none';
-
-    copyButton.style.borderRadius = '4px';
-
-    copyButton.style.padding = '5px 8px';
-
-    copyButton.style.cursor = 'pointer';
-
-    copyButton.style.fontSize = '14px';
-
-    copyButton.style.opacity = '0';
-
-    copyButton.style.transition = 'opacity 0.2s ease';
-
-    copyButton.setAttribute('title', 'Copy code');
-
-    
-
-    block.style.position = 'relative';
-
-    block.appendChild(copyButton);
-
-    
-
-    block.addEventListener('mouseenter', function() {
-
-      copyButton.style.opacity = '1';
-
-    });
-
-    
-
-    block.addEventListener('mouseleave', function() {
-
-      copyButton.style.opacity = '0';
-
-    });
-
-    
-
-    copyButton.addEventListener('click', function() {
-
-      const code = block.querySelector('code');
-
-      if (code) {
-
-        navigator.clipboard.writeText(code.textContent).then(function() {
-
-          copyButton.innerHTML = '✓';
-
-          setTimeout(() => {
-
-            copyButton.innerHTML = '⧉';
-
-          }, 1000);
-
-        });
-
-      }
-
-    });
-
-  });
-
-  
-
   // Smooth scroll for TOC links
 
   const tocLinks = document.querySelectorAll('#TOC a, .tocify a');
@@ -1760,17 +1643,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
   images.forEach(function(img) {
 
-    img.style.opacity = '0';
+    if (img.complete) {
 
-    img.style.transition = 'opacity 0.5s ease';
+      img.style.opacity = '1';
 
-    
+    } else {
 
-    img.addEventListener('load', function() {
+      img.style.opacity = '0';
 
-      this.style.opacity = '1';
+      img.style.transition = 'opacity 0.5s ease';
 
-    });
+      
+
+      img.addEventListener('load', function() {
+
+        this.style.opacity = '1';
+
+      });
+
+    }
 
   });
 

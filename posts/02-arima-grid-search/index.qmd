@@ -28,9 +28,14 @@ execute:
   fig-height: 6
 ---
 
-```{r setup-html}
+```{r setup-html, include=FALSE, eval=FALSE}
 #| include: false
 knit_print_test = function(x, options) {
+    # Don't intercept data frames, tibbles, or kable outputs
+    if (inherits(x, c("data.frame", "tbl_df", "tbl", "knitr_kable"))) {
+        return(knitr::normal_print(x))
+    }
+    
     fansi::sgr_to_html(
         x = paste(capture.output(print(x)), collapse = "\n"),
         warn = FALSE,

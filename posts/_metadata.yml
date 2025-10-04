@@ -29,4 +29,6 @@ format:
         - cosmo
       dark: 
         - darkly
-    css: Theme/code.css
+    css: 
+      - Theme/code.css
+      - Theme/table.css
