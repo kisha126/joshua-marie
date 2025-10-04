@@ -1663,21 +1663,67 @@ h4 {
 
 
 
-a,
+/* MODIFIED: Exclude category links from global styling */
 
-a:visited {
+a:not(.quarto-category):not(.listing-category),
+
+a:visited:not(.quarto-category):not(.listing-category) {
 
   color: #3A6F43 !important;
 
-  text-decoration: underline;
+  text-decoration: none;
 
 }
 
 
 
-a:hover {
+a:hover:not(.quarto-category):not(.listing-category) {
 
   color: #333333 !important;
+
+}
+
+
+
+/* =========================
+
+   Category Links Fix
+
+   ========================= */
+
+
+
+/* Ensure category links remain functional */
+
+.quarto-category,
+
+a.quarto-category,
+
+.quarto-categories .quarto-category,
+
+.listing-category,
+
+a.listing-category {
+
+  pointer-events: auto !important;
+
+  cursor: pointer !important;
+
+  color: inherit !important;
+
+  text-decoration: none !important;
+
+}
+
+
+
+.quarto-category:hover,
+
+.listing-category:hover {
+
+  opacity: 0.8 !important;
+
+  text-decoration: none !important;
 
 }
 
