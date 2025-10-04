@@ -8,6 +8,7 @@ listing:
     - "date" 
     - "title desc"
   filter-ui: true
+  sort-ui: true
 comments: false
 format: 
   html: 
